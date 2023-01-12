@@ -2,19 +2,12 @@ import { useState } from 'react';
 import Button from '../components/Button';
 import Cake from '../components/Cake';
 import Card from '../components/Card';
+import Go from '../components/Go';
 
 export default function Home() {
   const [gift, setGift] = useState(false);
   const handleGift = () => {
     setGift(true);
   };
-  return (
-    <div className='w-full h-screen flex justify-center items-center bg-navy-100'>
-      <div className='flex flex-col'>
-        <Card name={''} message={''} />
-        <Cake gift={gift} />
-        {!gift ? <Button onClick={handleGift} /> : null}
-      </div>
-    </div>
-  );
+  return <Go />;
 }
