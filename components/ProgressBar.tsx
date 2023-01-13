@@ -15,8 +15,6 @@ function ScrollProgressBar({
 }: {
   scrollPositionRatio: number;
 }) {
-  console.log(scrollPositionRatio * 100);
-
   return (
     <Container className='bg-slate-700 fixed left-0 top-0 w-full h-[5px]'>
       <Bar className='bg-teal-400' currentWidth={scrollPositionRatio * 100} />
