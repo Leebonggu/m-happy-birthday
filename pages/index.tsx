@@ -1,5 +1,19 @@
-import Travel from '../components/Travel';
+import dynamic from 'next/dynamic';
+import { useResize, useScroll } from '../lib/hooks';
+
+const Travel = dynamic(() => import('../components/Travel'), { ssr: false });
+const ProgressBar = dynamic(() => import('../components/ProgressBar'), {
+  ssr: false,
+});
 
 export default function Home() {
-  return <div>공사중</div>;
+  const { scrollPosition } = useScroll();
+  const { maxScrollValue } = useResize();
+
+  return (
+    <>
+      <ProgressBar scrollPositionRatio={scrollPosition / maxScrollValue} />
+      <Travel scrollPositionRatio={scrollPosition / maxScrollValue} />
+    </>
+  );
 }

@@ -1,5 +1,5 @@
 /**with interactive inflearn */
-import React from 'react';
+import React, { useRef } from 'react';
 import {
   Container,
   Stage,
@@ -11,12 +11,16 @@ import {
   WallTitle,
 } from './Travel.styles';
 import Gift from '../Gift';
+import { useMouse } from '../../lib/hooks';
 
-function Go() {
+function Travel({ scrollPositionRatio }: { scrollPositionRatio: number }) {
+  const ref = useRef<null | HTMLDivElement>(null);
+  const { x, y } = useMouse();
+
   return (
     <Container>
-      <Stage>
-        <House>
+      <Stage ref={ref} x={x} y={y}>
+        <House z={scrollPositionRatio * 980}>
           <WallLeft></WallLeft>
           <WallRight></WallRight>
           <WallFront distance={300}>
@@ -36,7 +40,7 @@ function Go() {
               <WallTitle>333</WallTitle>
             </WallContent>
           </WallFront>
-          <WallFront distance={-300}>
+          <WallFront distance={-500}>
             <WallContent>
               <WallTitle>4444</WallTitle>
             </WallContent>
@@ -47,4 +51,4 @@ function Go() {
   );
 }
 
-export default Go;
+export default Travel;

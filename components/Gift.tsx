@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { createLottoNumbers } from '../lib';
 
 export function cls(...classnames: string[]) {
@@ -6,6 +6,7 @@ export function cls(...classnames: string[]) {
 }
 
 function Gift() {
+  const [giftNumber, setGiftNumber] = useState<number[]>([]);
   const createRandomNumber = () => {
     const index = Math.floor(Math.random() * 10);
 
@@ -23,13 +24,16 @@ function Gift() {
     ][index];
   };
 
-  const [numbers] = createLottoNumbers(1);
+  useEffect(() => {
+    const [numbers] = createLottoNumbers(1);
+    setGiftNumber(numbers);
+  }, []);
 
   return (
     <div className='w-full flex flex-col items-center justify-center '>
       <div className='text-2xl font-bold'>부자되세요^^</div>
       <div className='w-full h-40 flex  items-center justify-center gap-2'>
-        {numbers.map((number, key) => {
+        {giftNumber.map((number, key) => {
           const randomColor = createRandomNumber();
 
           return (
@@ -49,4 +53,4 @@ function Gift() {
   );
 }
 
-export default Gift;
+export default memo(Gift);

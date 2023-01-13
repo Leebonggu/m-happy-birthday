@@ -9,19 +9,21 @@ const Container = styled.div`
   perspective: 1000px;
 `;
 
-const Stage = styled.div`
+const Stage = styled.div<{ x: number; y: number }>`
   position: absolute;
   left: 0;
   top: 0;
   width: 100vw;
   height: 100vh;
   transform-style: preserve-3d;
+  transform: ${(props) =>
+    `rotateX(${props.y * 5}deg) rotateY(${props.x * 5}deg)`};
 `;
 
-const House = styled.div`
+const House = styled.div<{ z: number }>`
   width: 100vw;
   height: 100vh;
-  transform: translateZ(-490vw);
+  transform: ${(props) => `translateZ(${props.z - 490}vw);`};
   transform-style: preserve-3d;
 `;
 

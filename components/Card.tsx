@@ -58,7 +58,7 @@ function Card({ name, message }: { name?: string; message?: string }) {
   return (
     <div className='py-14 flex flex-col justify-center font-bold text-7xl'>
       <Happy>HAPPY {name} BIRTHDAY</Happy>
-      <div className='text-5xl text-center'>{message}</div>
+      {message ? <div className='text-5xl text-center'>{message}</div> : null}
     </div>
   );
 }
