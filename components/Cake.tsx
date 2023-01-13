@@ -3,7 +3,7 @@ import Candle from './Candle';
 import Circle from './Circle';
 import Gift from './Gift';
 
-function Cake({ gift }: { gift: boolean }) {
+function Cake({ gift }: { gift?: boolean }) {
   return (
     <div className='flex flex-col justify-center items-center mt-10'>
       {gift ? <Gift /> : <Candle />}

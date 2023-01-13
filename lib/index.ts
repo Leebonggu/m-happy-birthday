@@ -15,10 +15,7 @@ const createLottoNumber = (lotto: number[] = []): number[] => {
   return createLottoNumber(lotto);
 };
 
-const createLottoNumbers = (count: number) => {
-  return Array.from({ length: count }).map((_) => {
-    return createLottoNumber();
-  });
-};
+const createLottoNumbers = (count: number) =>
+  Array.from({ length: count }).map((_) => createLottoNumber());
 
 export { createRandomNumber, createLottoNumber, createLottoNumbers };

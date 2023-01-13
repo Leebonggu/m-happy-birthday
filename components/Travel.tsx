@@ -10,8 +10,10 @@ import {
   WallContent,
   WallTitle,
 } from './Travel.styles';
-import Gift from '../Gift';
-import { useMouse } from '../../lib/hooks';
+import Gift from './Gift';
+import { useMouse } from '../lib/hooks';
+import Card from './Card';
+import Cake from './Cake';
 
 function Travel({ scrollPositionRatio }: { scrollPositionRatio: number }) {
   const ref = useRef<null | HTMLDivElement>(null);
@@ -23,21 +25,25 @@ function Travel({ scrollPositionRatio }: { scrollPositionRatio: number }) {
         <House z={scrollPositionRatio * 980}>
           <WallLeft></WallLeft>
           <WallRight></WallRight>
-          <WallFront distance={300}>
+          <WallFront distance={350}>
             <WallContent>
               <WallTitle>
-                <Gift />
+                <Card />
               </WallTitle>
             </WallContent>
           </WallFront>
           <WallFront distance={50}>
             <WallContent>
-              <WallTitle>22</WallTitle>
+              <WallTitle>
+                <Cake />
+              </WallTitle>
             </WallContent>
           </WallFront>
           <WallFront distance={-200}>
             <WallContent>
-              <WallTitle>333</WallTitle>
+              <WallTitle>
+                <Gift />
+              </WallTitle>
             </WallContent>
           </WallFront>
           <WallFront distance={-500}>

@@ -26,7 +26,7 @@ function Gift() {
 
   useEffect(() => {
     const [numbers] = createLottoNumbers(1);
-    setGiftNumber(numbers);
+    setGiftNumber(numbers.sort((a, b) => a - b));
   }, []);
 
   return (
