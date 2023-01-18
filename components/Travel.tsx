@@ -10,11 +10,12 @@ import {
   WallContent,
   WallTitle,
 } from './Travel.styles';
-import img from '../public/logo.svg';
 import Gift from './Gift';
 import { useMouse } from '../lib/hooks';
 import Card from './Card';
 import Cake from './Cake';
+import Song from './Song';
+import { animated } from '@react-spring/web';
 
 function Travel({ scrollPositionRatio }: { scrollPositionRatio: number }) {
   const ref = useRef<null | HTMLDivElement>(null);
@@ -26,7 +27,13 @@ function Travel({ scrollPositionRatio }: { scrollPositionRatio: number }) {
         <House z={scrollPositionRatio * 980}>
           <WallLeft></WallLeft>
           <WallRight></WallRight>
-          <WallFront distance={350}>
+          <WallFront distance={400}>
+            <WallContent className='flex flex-col'>
+              <Song />
+              <animated.div className='mt-2'>BGM ON</animated.div>
+            </WallContent>
+          </WallFront>
+          <WallFront distance={200}>
             <WallContent>
               <WallTitle>
                 <Card name='준수' />
