@@ -33,7 +33,7 @@ const Wall = styled.div`
   top: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(2555, 255, 255, 0.9);
+  background: rgba(2555, 255, 255, 0.95);
 `;
 
 const WallLeft = styled(Wall)`

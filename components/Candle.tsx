@@ -1,5 +1,7 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
+import { useInfiniteSpring } from '../lib/hooks';
+import { animated } from '@react-spring/web';
 
 const Flame = styled.div`
   width: 50px;
@@ -24,16 +26,20 @@ const Flame = styled.div`
 `;
 
 function Candle() {
+  const { props } = useInfiniteSpring();
+
   return (
-    <div className='w-5 h-40 flex flex-col items-center'>
-      <Flame />
+    <animated.div className='w-5 h-40 flex flex-col items-center'>
+      <animated.div style={props}>
+        <Flame />
+      </animated.div>
       <div className='w-full h-full bg-red-500 flex flex-col justify-evenly'>
         <div className='w-full h-1 bg-white top-2 rotate-45'></div>
         <div className='w-full h-1 bg-white top-2 rotate-45'></div>
         <div className='w-full h-1 bg-white top-2 rotate-45'></div>
         <div className='w-full h-1 bg-white top-2 rotate-45'></div>
       </div>
-    </div>
+    </animated.div>
   );
 }
 

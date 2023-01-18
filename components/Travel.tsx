@@ -10,6 +10,7 @@ import {
   WallContent,
   WallTitle,
 } from './Travel.styles';
+import img from '../public/logo.svg';
 import Gift from './Gift';
 import { useMouse } from '../lib/hooks';
 import Card from './Card';
@@ -28,7 +29,7 @@ function Travel({ scrollPositionRatio }: { scrollPositionRatio: number }) {
           <WallFront distance={350}>
             <WallContent>
               <WallTitle>
-                <Card />
+                <Card name='준수' />
               </WallTitle>
             </WallContent>
           </WallFront>
@@ -46,9 +47,23 @@ function Travel({ scrollPositionRatio }: { scrollPositionRatio: number }) {
               </WallTitle>
             </WallContent>
           </WallFront>
-          <WallFront distance={-500}>
+          <WallFront
+            distance={-500}
+            style={{
+              backgroundImage: `url(/logo.svg)`,
+            }}
+          >
             <WallContent>
-              <WallTitle>4444</WallTitle>
+              <WallTitle
+                style={{
+                  width: '70%',
+                  height: '80%',
+                  backgroundImage: `url(/ceo.png)`,
+                  backgroundPosition: 'center',
+                  backgroundSize: 'contain',
+                  backgroundRepeat: 'no-repeat',
+                }}
+              ></WallTitle>
             </WallContent>
           </WallFront>
         </House>
