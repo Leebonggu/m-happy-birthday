@@ -4,8 +4,6 @@ import sound2 from '../public/mp3/sounds_explosion1.mp3';
 import sound3 from '../public/mp3/sounds_explosion2.mp3';
 
 function Party() {
-  console.log(sound1, sound2, sound3);
-
   return (
     <Fireworks
       options={{
