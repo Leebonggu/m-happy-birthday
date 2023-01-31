@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fireworks-js/react": "^2.10.1",
     "@next/font": "13.1.1",
     "@react-spring/web": "^9.6.1",
     "@types/node": "18.11.18",
@@ -17,7 +18,9 @@
     "@types/styled-components": "^5.1.26",
     "eslint": "8.31.0",
     "eslint-config-next": "13.1.1",
+    "i": "^0.3.7",
     "next": "13.1.1",
+    "npm": "^9.4.0",
     "prettier": "^2.8.1",
     "react": "18.2.0",
     "react-audio-player": "^0.17.0",
@@ -29,7 +32,9 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
+    "file-loader": "^6.2.0",
     "postcss": "^8.4.20",
-    "tailwindcss": "^3.2.4"
+    "tailwindcss": "^3.2.4",
+    "url-loader": "^4.1.1"
   }
 }

@@ -20,9 +20,9 @@ function Cake({ gift }: { gift?: boolean; message?: string }) {
       <div className='w-[500px] h-[120px] bg-gray-100 overflow-hidden relative rounded-sm'>
         <Circle count={10} />
       </div>
-      <animated.div style={props} className='text-2xl pt-10'>
+      {/* <animated.div style={props} className='text-2xl pt-10'>
         마우스를 내리면서 초를 부세요~
-      </animated.div>
+      </animated.div> */}
     </div>
   );
 }

@@ -31,8 +31,8 @@ function Gift() {
 
   return (
     <div className='w-full flex flex-col items-center justify-center '>
-      <div className='text-2xl font-bold'>부자되세요^^</div>
-      <div className='w-full h-40 flex  items-center justify-center gap-2'>
+      {/* <div className='text-2xl font-bold'>부자되세요^^</div> */}
+      <div className='w-full flex  items-center justify-center gap-2'>
         {giftNumber.map((number, key) => {
           const randomColor = createRandomNumber();
 

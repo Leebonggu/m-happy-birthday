@@ -1,45 +1,58 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { Fireworks } from '@fireworks-js/react';
+import sound1 from '../public/mp3/sounds_explosion0.mp3';
+import sound2 from '../public/mp3/sounds_explosion1.mp3';
+import sound3 from '../public/mp3/sounds_explosion2.mp3';
 
-function Firework() {
-  const canvas = useRef<HTMLCanvasElement>(null);
-  const fps = 60;
-  const interval = 1000 / fps;
+function Party() {
+  console.log(sound1, sound2, sound3);
 
-  const [now, setNow] = useState(0);
-  const [delta, setDelta] = useState(0);
-  const [then, setThen] = useState(Date.now());
-
-  const canvasWidth = window?.innerWidth;
-  const canvasHeight = window?.innerHeight;
-
-  useEffect(() => {
-    function render() {
-      requestAnimationFrame(render);
-      setNow(Date.now());
-      setDelta(now - then);
-      if (delta < interval) return;
-
-      setThen(now - (delta % interval));
-    }
-
-    if (canvas.current) {
-      const ctx = canvas.current.getContext('2d');
-      const dpr = window.devicePixelRatio;
-
-      canvas.current.width = canvasWidth * dpr;
-      canvas.current.height = canvasHeight * dpr;
-      ctx?.scale(dpr, dpr);
-
-      canvas.current.style.width = canvasWidth + 'px';
-      canvas.current.style.height = canvasHeight + 'px';
-
-      render();
-
-      ctx?.fillRect(100, 100, 200, 200);
-    }
-  }, [canvasHeight, canvasWidth, delta, interval, now, then]);
-
-  return <canvas ref={canvas}>Firework</canvas>;
+  return (
+    <Fireworks
+      options={{
+        hue: {
+          min: 0,
+          max: 345,
+        },
+        brightness: {
+          min: 50,
+          max: 100,
+        },
+        decay: {
+          min: 0.025,
+          max: 0.045,
+        },
+        rocketsPoint: {
+          min: 0,
+          max: 100,
+        },
+        traceLength: 5,
+        particles: 150,
+        explosion: 5,
+        traceSpeed: 10,
+        friction: 1,
+        intensity: 60,
+        mouse: {
+          click: true,
+          max: 10,
+        },
+        sound: {
+          enabled: true,
+          files: [sound1, sound2, sound3],
+        },
+      }}
+      style={{
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        position: 'fixed',
+        background: '#000',
+        backgroundImage: `url(./night_city.png)`,
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'bottom',
+      }}
+    />
+  );
 }
 
-export default Firework;
+export default Party;

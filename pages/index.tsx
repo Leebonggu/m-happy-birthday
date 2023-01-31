@@ -1,10 +1,21 @@
 import dynamic from 'next/dynamic';
-const FireWork = dynamic(() => import('../components/Firework'), { ssr: true });
+import Card from '../components/Card';
+import Gift from '../components/Gift';
+import Cake from '../components/Cake';
+
+const Party = dynamic(() => import('../components/Firework'), {
+  ssr: false,
+});
 
 export default function Home() {
   return (
-    <>
-      <FireWork />
-    </>
+    <div className='w-screen flex justify-center items-center'>
+      <Party />
+      <div className='fixed top-44 text-white flex justify-center items-center flex-col'>
+        <Card name='경호' />
+        <Gift />
+        <Cake />
+      </div>
+    </div>
   );
 }
