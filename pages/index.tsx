@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className='w-screen flex justify-center items-center'>
       <Party />
-      <div className='fixed top-44 text-white flex justify-center items-center flex-col'>
+      <div className='fixed top-11 text-white flex justify-center items-center flex-col'>
         <Card name='경호' />
         <Gift />
         <Cake />
