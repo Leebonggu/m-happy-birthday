@@ -8,8 +8,10 @@ const Party = dynamic(() => import('../components/Firework'), {
 });
 
 export default function Home() {
+  const dev = process.env.NODE_ENV === 'development';
   return (
     <div className='w-screen flex justify-center items-center'>
+      {dev ? 'Dev' : 'Prod'}
       <Party />
       <div className='fixed top-11 text-white flex justify-center items-center flex-col'>
         <Card name='경호' />
